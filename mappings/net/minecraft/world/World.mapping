@@ -130,6 +130,7 @@ CLASS bbp net/minecraft/world/World
 	METHOD a getLightLevel (Lbca;Let;)I
 		ARG 1 type
 	METHOD a addBlockEntity (Lbnq;)Z
+	METHOD a tickChunk (Lbrm;I)V
 	METHOD a getTop (Lbst$a;II)I
 		ARG 1 type
 		ARG 2 x
@@ -290,6 +291,7 @@ CLASS bbp net/minecraft/world/World
 	METHOD m isHeightInvaid (Let;)Z
 		ARG 0 pos
 	METHOD m_ updateEntities ()V
+	METHOD n getSpawnPosition ()Let;
 	METHOD n getChunk (Let;)Lbrm;
 	METHOD o getDimension ()Lbsf;
 	METHOD o scheduleBlockRender (Let;)V

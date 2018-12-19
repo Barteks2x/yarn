@@ -70,6 +70,7 @@ CLASS uy
 	METHOD h getPersistentStateManager ()Lciq;
 	METHOD i getSaveHandler ()Lcii;
 	METHOD m getRandom ()Ljava/util/Random;
+	METHOD n getSpawnPosition ()Let;
 	METHOD o getDimension ()Lbsf;
 	METHOD q_ getSeaLevel ()I
 	METHOD r_ getSeed ()J

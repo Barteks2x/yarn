@@ -1,0 +1,28 @@
+CLASS uk temp/ChunkTicketManager
+	CLASS uk$a
+		METHOD a setLevelFor (JI)V
+			ARG 1 index
+			ARG 3 level
+		METHOD d getInitialBaseLevel (J)I
+		METHOD e getCurrentLevelFor (J)I
+			ARG 1 index
+	FIELD a LOGGER Lorg/apache/logging/log4j/Logger;
+	FIELD c tickets Lit/unimi/dsi/fastutil/longs/Long2ObjectOpenHashMap;
+	FIELD e __updatedEntries Ljava/util/Set;
+	FIELD f tickCount J
+	METHOD a tick ()V
+		ARG 1 ticketIterator
+		ARG 2 ticketsEntry
+	METHOD a setLevelFor (JI)V
+		ARG 1 index
+		ARG 3 level
+	METHOD a addPlayer (JILus;)V
+	METHOD a removePlayer (JLus;)V
+	METHOD a (Lud;)Z
+		ARG 1 chunkLoader
+		ARG 2 updated
+	METHOD a addTicket (Luw;Lbbd;ILjava/lang/Object;)V
+	METHOD b addChunkTicket (Luw;Lbbd;ILjava/lang/Object;)V
+	METHOD d getInitialBaseLevel (J)I
+	METHOD e getCurrentLevelFor (J)I
+		ARG 1 index

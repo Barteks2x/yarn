@@ -1,0 +1,69 @@
+CLASS uc net/minecraft/server/world/ChunkHolder
+	CLASS uc$a Unloaded
+		FIELD b INSTANCE Luc$a;
+	CLASS uc$b TickingLevel
+		METHOD a isAbove (Luc$b;)Z
+			ARG 1 status
+	CLASS uc$c
+	CLASS uc$d PlayerVewDistanceTracker
+		METHOD a getPlayersWithinViewDistance (Lbbd;Z)Ljava/util/stream/Stream;
+			ARG 1 pos
+			ARG 2 onlyEdge
+		METHOD a getPlayersWithinViewDistance (Lbbd;ZZ)Ljava/util/stream/Stream;
+			ARG 1 pos
+			ARG 2 onlyEdge
+			ARG 3 oldPlayerPos
+	FIELD a UNLOADED_CHUNK Lcom/mojang/datafixers/util/Either;
+	FIELD b UNLOADED_CHUNK_FUTURE Ljava/util/concurrent/CompletableFuture;
+	FIELD c UNLOADED_WORLD_CHUNK Lcom/mojang/datafixers/util/Either;
+	FIELD d UNLOADED_WORLD_CHUNK_FUTURE Ljava/util/concurrent/CompletableFuture;
+	FIELD e chunkStatuses Ljava/util/List;
+	FIELD f TICKING_STATUSES [Luc$b;
+	FIELD g chunkByStatus Ljava/util/concurrent/atomic/AtomicReferenceArray;
+	FIELD h tickingFutureChunk Ljava/util/concurrent/CompletableFuture;
+	FIELD i entityTickingFutureChunk Ljava/util/concurrent/CompletableFuture;
+	FIELD j chunk Ljava/util/concurrent/CompletableFuture;
+	FIELD k previousTicketLevel I
+	FIELD l currentTicketLevel I
+	FIELD m __targetTicketLevel I
+	FIELD n pos Lbbd;
+	FIELD o blockUpdatePositions [S
+	FIELD p blockUpdateCount I
+	FIELD s sectionsWithBlockLightUpdate I
+	FIELD t sectionsWithSkyLightUpdate I
+	FIELD u lightingProvider Lceu;
+	FIELD w playerViewDistanceTracker Luc$d;
+	METHOD a getFutureChunk1 ()Ljava/util/concurrent/CompletableFuture;
+	METHOD a setCurrentTicketLevel (I)V
+	METHOD a markForUpdate (III)V
+		ARG 1 localX
+		ARG 2 blockY
+		ARG 3 localZ
+	METHOD a sendBlockEntityUpdatePacket (Lbbp;Let;)V
+	METHOD a onLightUpdate (Lbca;I)V
+		ARG 1 type
+		ARG 2 sectionY
+	METHOD a (Lbrf;Lud;)Ljava/util/concurrent/CompletableFuture;
+		ARG 1 targetStatus
+		ARG 3 statusId
+		ARG 4 futureChunk
+	METHOD a sendUpdatesToClients (Lbrm;)V
+		ARG 1 chunk
+	METHOD a updateChunk (Ljava/util/concurrent/CompletableFuture;)V
+	METHOD a sendPacket (Ljr;Z)V
+	METHOD a update (Lud;)V
+		ARG 4 statusBefore
+		ARG 5 statusNow
+	METHOD b getFutureChunk2 ()Ljava/util/concurrent/CompletableFuture;
+	METHOD b getStatus (I)Lbrf;
+	METHOD b getFutureChunkForStatus (Lbrf;)Ljava/util/concurrent/CompletableFuture;
+	METHOD c getChunk ()Lbrm;
+	METHOD c getTickingLevel (I)Luc$b;
+		ARG 0 statusIndex
+	METHOD d getChunkStatus ()Lbrf;
+	METHOD d __setTargetTicketLevel (I)V
+	METHOD e getChunk ()Lbra;
+	METHOD f getChunkFuture ()Ljava/util/concurrent/CompletableFuture;
+	METHOD h getPos ()Lbbd;
+	METHOD i getCurrentTicketLevel ()I
+	METHOD j __getTargetTicketLevel ()I

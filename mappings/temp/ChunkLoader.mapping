@@ -1,0 +1,65 @@
+CLASS ud temp/ChunkLoader
+	CLASS ud$a ChunkTicketManagerImpl
+	FIELD a LOGGER Lorg/apache/logging/log4j/Logger;
+	FIELD b allChunks Lit/unimi/dsi/fastutil/longs/Long2ObjectLinkedOpenHashMap;
+	FIELD c world Lbbp;
+	FIELD d lightingProvider Luu;
+	FIELD e __mainExecutor Ljava/util/concurrent/Executor;
+	FIELD f playerDistanceTracker Luc$d;
+	FIELD g chunkgenerator Lbrb;
+	FIELD h __chunkExecutor Ljava/util/concurrent/Executor;
+	FIELD i completedChunks Lit/unimi/dsi/fastutil/longs/Long2ObjectLinkedOpenHashMap;
+	FIELD j toUnload Lit/unimi/dsi/fastutil/longs/LongSet;
+	FIELD m __worldgenThing Laey;
+	FIELD o __mainThing Laey;
+	FIELD p saveHandler Lbrz;
+	FIELD q ticketManager Lud$a;
+	FIELD s __someCount Ljava/util/concurrent/atomic/AtomicInteger;
+	METHOD <init> (Ljava/util/concurrent/Executor;Luc$d;Ljava/util/concurrent/Executor;Lbrz;Lbro;Lbbp;Lbrb;)V
+		ARG 8 __lightThing
+	METHOD a getLightingProvider ()Luu;
+	METHOD a applyViewDistance (II)V
+	METHOD a getChunkEntry (J)Luc;
+		ARG 1 chunkPos
+	METHOD a __updateHolder (JILuc;I)Luc;
+		ARG 1 chunkPos
+		ARG 4 entry
+	METHOD a describeChunk (Lbbd;)Ljava/lang/String;
+		ARG 1 pos
+		ARG 2 entry
+	METHOD a scheduleLoadChunksAround (Lbbd;ILjava/util/function/IntFunction;)Ljava/util/concurrent/CompletableFuture;
+		ARG 1 origin
+		ARG 2 radius
+		ARG 3 targetStatusByDistance
+		ARG 4 chunks
+		ARG 9 distance
+		ARG 10 currentPos
+		ARG 11 posLong
+		ARG 13 entry
+		ARG 14 targetStatus
+		ARG 15 futureChunk
+	METHOD a convertToFullChunk (Lbra;)Ljava/util/concurrent/CompletableFuture;
+	METHOD a saveOrUnloadChunk (Lbra;Z)V
+		ARG 1 chunk
+		ARG 2 unload
+	METHOD a unloadChunks (Ljava/util/function/BooleanSupplier;)V
+		ARG 1 hasMoreTime
+	METHOD a getFutureChunkWithStatus (Luc;Lbrf;)Ljava/util/concurrent/CompletableFuture;
+	METHOD a sendChunkDataPacket (Lus;Lbbd;[Ljr;ZZ)V
+		ARG 1 player
+		ARG 2 pos
+		ARG 3 packets
+		ARG 4 previouslyLoaded
+		ARG 5 nowLoaded
+	METHOD a saveAll (Z)V
+		ARG 1 writeToDisk
+	METHOD b scheduleFullChunkLoad (Lbbd;)Ljava/util/concurrent/CompletableFuture;
+		ARG 1 pos
+	METHOD b saveChunks (Ljava/util/function/BooleanSupplier;)V
+		ARG 1 hasMoreTime
+	METHOD c getCompletedChunkEntry (J)Luc;
+		ARG 1 chunkPos
+	METHOD d loadedChunkCount ()I
+	METHOD e getTicketManager ()Lud$a;
+	METHOD f loadedChunksIterator ()Lit/unimi/dsi/fastutil/objects/ObjectBidirectionalIterator;
+	METHOD i getProgressString ()Ljava/lang/String;

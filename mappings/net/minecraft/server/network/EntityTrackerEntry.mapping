@@ -21,3 +21,5 @@ CLASS ux net/minecraft/server/network/EntityTrackerEntry
 	METHOD b getEntity ()Lagv;
 	METHOD b sendToTrackingPlayersAndSelf (Ljr;)V
 	METHOD e createSpawnPacket ()Ljr;
+	METHOD e shouldSendUpdatesToPlayer (Lus;)Z
+		ARG 1 player

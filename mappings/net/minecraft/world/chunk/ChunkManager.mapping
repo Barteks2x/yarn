@@ -5,12 +5,13 @@ CLASS bre net/minecraft/world/chunk/ChunkManager
 		ARG 3 status
 		ARG 4 require
 	METHOD a tick (Ljava/util/function/BooleanSupplier;)V
+		ARG 1 hasMoreTime
 	METHOD a setMobSpawnOptions (ZZ)V
 		ARG 1 spawnMonsters
 		ARG 2 spawnAnimals
 	METHOD b get (II)Lbbb;
 		ARG 1 chunkX
 		ARG 2 chunkZ
-	METHOD f getStatus ()Ljava/lang/String;
+	METHOD f getStatusString ()Ljava/lang/String;
 	METHOD g getChunkGenerator ()Lbrb;
 	METHOD i getLightingProvider ()Lceu;

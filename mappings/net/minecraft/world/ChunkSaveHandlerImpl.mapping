@@ -1,5 +1,8 @@
 CLASS bry net/minecraft/world/ChunkSaveHandlerImpl
 	FIELD e featureUpdater Lcbz;
+	METHOD a saveNextChunk ()Z
+	METHOD a saveChunk (Lbbp;Lbra;)V
+	METHOD a loadChunk (Lbbq;II)Lbru;
 	METHOD a shortListsToNbt ([Lit/unimi/dsi/fastutil/shorts/ShortList;)Lhy;
 		ARG 0 lists
-	METHOD b save ()V
+	METHOD b flush ()V

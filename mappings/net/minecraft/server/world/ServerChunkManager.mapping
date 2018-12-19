@@ -1,52 +1,118 @@
 CLASS up net/minecraft/server/world/ServerChunkManager
+	FIELD a unloadedTicketLevel I
+	FIELD b mobSpawnChunkCount I
 	FIELD c chunkStatuses Ljava/util/List;
+	FIELD d ticketmanager Luk;
 	FIELD e chunkGenerator Lbrb;
 	FIELD f world Lbbp;
+	FIELD g serverThread Ljava/lang/Thread;
 	FIELD h lightProvider Luu;
 	FIELD i genQueue Ljava/util/Queue;
 	FIELD j players Lun;
-	FIELD l maxWatchDistance I
+	FIELD k chunkLoader Lud;
+	FIELD l viewDistance I
+	FIELD m lastTickWorldTime J
 	FIELD n spawnMonsters Z
 	FIELD o spawnAnimals Z
+	METHOD <init> (Lbbp;Lbrz;Ljava/util/concurrent/Executor;Lbrb;I)V
+		ARG 5 viewDistance
 	METHOD a getLightingProvider ()Luu;
 	METHOD a getChunkSync (IILbrf;Z)Lbra;
 		ARG 1 x
 		ARG 2 z
 		ARG 3 status
 		ARG 4 require
+	METHOD a getChunkEntry (J)Luc;
+		ARG 1 chunkPos
+	METHOD a describeChunk (Lbbd;)Ljava/lang/String;
 	METHOD a getWatchDistance (Lbbd;II)I
 	METHOD a getWatchDistance (Lbbd;Lagv;)I
+	METHOD a getWatchDistance (Lbbd;Lus;Z)I
+		ARG 2 oldPlayerPos
+	METHOD a getPlayersWithinViewDistance (Lbbd;ZZ)Ljava/util/stream/Stream;
+		ARG 1 pos
+		ARG 2 onlyEdge
+		ARG 3 oldPlayerPos
 	METHOD a onLightUpdate (Lbca;III)V
+		ARG 1 type
+		ARG 2 chunkX
+		ARG 3 sectionY
+		ARG 4 chunkZ
 	METHOD a markForUpdate (Let;)V
+		ARG 1 pos
 	METHOD a tick (Ljava/util/function/BooleanSupplier;)V
+		ARG 1 hasMoreTime
 	METHOD a addPlayer (Lus;)V
-	METHOD a (Lus;II)Z
+	METHOD a isPlayerWatchingChunk (Lus;II)Z
+		ARG 1 player
 		ARG 2 x
 		ARG 3 z
 	METHOD a addOrRemovePlayer (Lus;Z)V
+		ARG 1 player
 		ARG 2 add
+		ARG 3 loadOnly
+		ARG 7 chunkPos
+	METHOD a addChunkTicket (Luw;Lbbd;ILjava/lang/Object;)V
+		ARG 1 ticketType
 	METHOD a setMobSpawnOptions (ZZ)V
 		ARG 1 spawnMonsters
 		ARG 2 spawnAnimals
 	METHOD b getProgressString ()Ljava/lang/String;
 	METHOD b applyViewDistance (I)V
+		ARG 1 viewDistance
 	METHOD b get (II)Lbbb;
 		ARG 1 chunkX
 		ARG 2 chunkZ
+	METHOD b getChunkFuture (IILbrf;Z)Ljava/util/concurrent/CompletableFuture;
+		ARG 1 chunkX
+		ARG 2 chunkZ
+		ARG 3 targetStatus
+		ARG 4 require
 	METHOD b getSqDistance (Lbbd;Lagv;)D
 	METHOD b removePlayer (Lus;)V
 	METHOD c getChunkAsync (IILbrf;Z)Ljava/util/concurrent/CompletableFuture;
 		ARG 1 x
 		ARG 2 z
 		ARG 3 status
+		ARG 4 require
+		ARG 5 chunkPos
+		ARG 6 chunkPosLong
+		ARG 8 holder
 	METHOD c updateChunkWatchingForPlayer (Lus;)V
 		ARG 1 playerEntity
+		ARG 2 playerChunkX
+		ARG 3 playerChunkZ
+		ARG 4 lastPlayerChunkX
+		ARG 5 lastPlayerChunkZ
+		ARG 6 lastChunkPos
+		ARG 8 chunkPos
+		ARG 10 watchingDisabled
+		ARG 11 loadOnly
+		ARG 12 positionChanged
+		ARG 20 oldLoaded
+		ARG 21 newLoaded
 	METHOD d getWorld ()Lbbp;
-	METHOD d isWatchDisabled (Lus;)Z
-	METHOD f getStatus ()Ljava/lang/String;
+	METHOD d playerOnlyLoadsChunks (Lus;)Z
+		ARG 1 player
+	METHOD f getStatusString ()Ljava/lang/String;
 	METHOD g getChunkGenerator ()Lbrb;
 	METHOD h getLoadedChunkCount ()I
 	METHOD i getLightingProvider ()Lceu;
 	METHOD j getWorldAsView ()Lbbb;
 	METHOD k getRemainingWatchDistance ()I
-	METHOD m doMobSpawning ()V
+	METHOD m tickChunks ()V
+		ARG 1 currentTime
+		ARG 3 deltaTime
+		ARG 5 levelProperties
+		ARG 6 isDebug
+		ARG 7 spawnMobs
+		ARG 9 tickSpeed
+		ARG 10 spawnPosition
+		ARG 11 spawnAnimals
+		ARG 12 it
+		ARG 13 entry
+		ARG 14 mapEntry
+		ARG 15 chunk
+		ARG 16 chunkPos
+		ARG 21 spawnCap
+		ARG 22 currentlySpawned

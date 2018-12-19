@@ -1,17 +1,68 @@
 CLASS dbd net/minecraft/client/world/ClientChunkManager
+	CLASS dbd$a ClientChunkMap
+		FIELD b chunks Ljava/util/concurrent/atomic/AtomicReferenceArray;
+		FIELD c loadDistance I
+		FIELD d viewDiameter I
+		METHOD <init> (Ldbd;I)V
+			ARG 2 viewRadius
+		METHOD a unloadChunk (II)V
+			ARG 1 chunkX
+			ARG 2 chunkZ
+		METHOD b getChunk (II)Lbrm;
+			ARG 1 chunkX
+			ARG 2 chunkZ
+		METHOD c chunkIndex (II)I
+			ARG 1 chunkX
+			ARG 2 chunkZ
+		METHOD d hasChunk (II)Z
+			ARG 1 chunkX
+			ARG 2 chunkZ
 	FIELD a LOGGER Lorg/apache/logging/log4j/Logger;
 	FIELD b client Lcpk;
 	FIELD c emptyChunk Lbrm;
 	FIELD d lightingProvider Lceu;
+	FIELD e chunkMap Ldbd$a;
+	FIELD f loadedChunkCount I
+	FIELD g playerChunkX I
+	FIELD h playerChunkZ I
 	FIELD i world Lbbb;
+	METHOD a tickClient ()V
+		ARG 1 previousLoadDistance
+		ARG 2 loadDistance
 	METHOD a getChunkSync (IILbrf;Z)Lbra;
 		ARG 1 x
 		ARG 2 z
 		ARG 3 status
 		ARG 4 require
+	METHOD a loadChunkFromPacket (Lbbp;IILit;Lhs;IZ)V
+		ARG 1 world
+		ARG 2 chunkX
+		ARG 3 chunkZ
+		ARG 4 data
+		ARG 5 tag
+		ARG 11 lightingProvider
 	METHOD a onLightUpdate (Lbca;III)V
+		ARG 1 type
+		ARG 2 chunkX
+		ARG 3 sectionY
+		ARG 4 chunkZ
 	METHOD a tick (Ljava/util/function/BooleanSupplier;)V
-	METHOD f getStatus ()Ljava/lang/String;
+		ARG 1 hasMoreTime
+	METHOD b isWithinDistance (IIIII)Z
+		ARG 0 x1
+		ARG 1 z1
+		ARG 2 x2
+		ARG 3 z2
+		ARG 4 distance
+	METHOD b getChunk (IILbrf;Z)Lbrm;
+		ARG 1 chunkX
+		ARG 2 chunkZ
+		ARG 3 targetStatus
+		ARG 4 allowEmpty
+	METHOD c unloadChunk (II)V
+		ARG 1 chunkX
+		ARG 2 chunkZ
+	METHOD f getStatusString ()Ljava/lang/String;
 	METHOD g getChunkGenerator ()Lbrb;
 	METHOD i getLightingProvider ()Lceu;
 	METHOD j getWorldAsView ()Lbbb;

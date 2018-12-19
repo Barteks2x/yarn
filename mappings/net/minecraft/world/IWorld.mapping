@@ -23,4 +23,5 @@ CLASS bbq net/minecraft/world/IWorld
 	METHOD g getLocalDifficulty (Let;)Lafn;
 	METHOD i getSaveHandler ()Lcii;
 	METHOD m getRandom ()Ljava/util/Random;
+	METHOD n getSpawnPosition ()Let;
 	METHOD r_ getSeed ()J

@@ -1,2 +1,5 @@
 CLASS brz net/minecraft/world/ChunkSaveHandler
-	METHOD b save ()V
+	METHOD a saveNextChunk ()Z
+	METHOD a saveChunk (Lbbp;Lbra;)V
+	METHOD a loadChunk (Lbbq;II)Lbru;
+	METHOD b flush ()V

@@ -4,10 +4,13 @@ CLASS brf net/minecraft/world/chunk/ChunkStatus
 	FIELD p name Ljava/lang/String;
 	FIELD q orderId I
 	FIELD r previous Lbrf;
+	METHOD <init> (Ljava/lang/String;Lbrf;IZLbrf$b;Lbrf$a;)V
+		ARG 2 previous
 	METHOD a createOrderedList ()Ljava/util/List;
 	METHOD a getOrdered (I)Lbrf;
 		ARG 0 pos
-	METHOD a (Lbrf;)I
+	METHOD a generateChunk (Lbbp;Lbrb;Luu;Ljava/util/function/Function;Ljava/util/List;)Ljava/util/concurrent/CompletableFuture;
+	METHOD a getStatusOrdinal (Lbrf;)I
 		ARG 0 status
 	METHOD a get (Ljava/lang/String;)Lbrf;
 		ARG 0 id

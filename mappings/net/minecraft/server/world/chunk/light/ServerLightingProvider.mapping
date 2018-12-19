@@ -1,7 +1,8 @@
 CLASS uu net/minecraft/server/world/chunk/light/ServerLightingProvider
+	METHOD C_ tick ()V
 	METHOD a scheduleChunkLightUpdate (IIIZ)V
 		ARG 1 chunkX
-		ARG 2 chunkY
+		ARG 2 sectionY
 		ARG 3 chunkZ
 		ARG 4 isEmpty
 	METHOD a doLightUpdates (IZZ)I
